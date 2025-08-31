@@ -1,4 +1,4 @@
-import { TandaGroupInput, TandaSimConfig, TandaSimulationResult } from '../types';
+import { TandaGroupInput, TandaSimConfig, TandaSimulationResult } from '../../models/types';
 import { simulationService } from './simulationService';
 
 interface SeniorSummaryData {

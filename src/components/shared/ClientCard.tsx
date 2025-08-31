@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Client, BusinessFlow } from '../types';
+import { Client, BusinessFlow } from '../../models/types';
 import { DotsVerticalIcon } from './icons';
 
 interface ClientCardProps {

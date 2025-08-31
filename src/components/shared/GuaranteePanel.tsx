@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Document, DocumentStatus } from '../types';
+import { Document, DocumentStatus } from '../../models/types';
 import { CheckCircleIcon, ClockIcon, XCircleIcon, UploadIcon } from './icons';
 
 interface GuaranteePanelProps {

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Client, DocumentStatus } from '../types';
+import { Client, DocumentStatus } from '../../models/types';
 import { ArrowRightIcon, CheckCircleIcon, InformationCircleIcon, LightBulbIcon, SparklesIcon } from './icons';
 
 interface NextBestActionProps {

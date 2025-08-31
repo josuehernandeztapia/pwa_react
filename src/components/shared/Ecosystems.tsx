@@ -1,8 +1,8 @@
 
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { Ecosystem, Client, DocumentStatus, CollectiveCreditGroup, NavigationContext } from '../types';
-import { simulationService } from '../services/simulationService';
+import { Ecosystem, Client, DocumentStatus, CollectiveCreditGroup, NavigationContext } from '../../models/types';
+import { simulationService } from '../../services/simulation/simulationService';
 import { LibraryIcon, PlusCircleIcon, UserGroupIcon } from './icons';
 import { Modal } from './Modal';
 import { toast } from './Toast';

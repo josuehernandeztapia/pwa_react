@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, FormEvent, useRef, useMemo } from 'react';
-import { Client, Document, DocumentStatus, EventLog, Actor, PaymentLinkDetails, BusinessFlow, CollectiveCreditGroup, EventType, SavingsPlan, PaymentPlan, ImportStatus, NavigationContext } from '../types';
-import { simulationService } from '../services/simulationService';
+import { Client, Document, DocumentStatus, EventLog, Actor, PaymentLinkDetails, BusinessFlow, CollectiveCreditGroup, EventType, SavingsPlan, PaymentPlan, ImportStatus, NavigationContext } from '../../models/types';
+import { simulationService } from '../../services/simulation/simulationService';
 import { CheckCircleIcon, ClockIcon, XCircleIcon, UploadIcon, FingerPrintIcon, DocumentDownloadIcon, ClipboardCopyIcon, UserGroupIcon, FuelIcon, InformationCircleIcon, ShieldCheckIcon } from './icons';
 import { Modal } from './Modal';
 import { toast } from './Toast';

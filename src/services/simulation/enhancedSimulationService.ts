@@ -2,7 +2,7 @@
 // This integrates the advanced financial functions while maintaining all existing functionality
 
 import { generateScenarioWithTIR, getBalance } from './advancedFinancials';
-import { Client, ProtectionScenario, TandaGroupInput, TandaSimConfig, TandaSimulationResult, TandaMonthState, TandaAward, TandaRiskBadge, EventType, Actor } from '../types';
+import { Client, ProtectionScenario, TandaGroupInput, TandaSimConfig, TandaSimulationResult, TandaMonthState, TandaAward, TandaRiskBadge, EventType, Actor } from '../../models/types';
 
 // Basic annuity calculation
 const annuity = (principal: number, monthlyRate: number, term: number): number => {

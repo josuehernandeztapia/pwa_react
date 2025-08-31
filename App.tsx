@@ -2,21 +2,21 @@
 
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { Header } from './components/Header';
-import { Sidebar, View } from './components/Sidebar';
-import { ToastContainer, toast } from './components/Toast';
-import { Settings } from './components/Settings';
-import { Client, Notification, Quote, NavigationContext } from './types';
-import { simulationService } from './services/simulationService';
-import { Cotizador } from './components/Cotizador';
-import { Ecosystems } from './components/Ecosystems';
-import { Dashboard } from './components/Dashboard';
-import { Opportunities } from './components/Opportunities';
-import { ClientsView } from './components/ClientsView';
-import { ClientDetail } from './components/ClientDetail';
-import { CollectiveCredit } from './components/CollectiveCredit';
-import { BottomNavBar } from './components/BottomNavBar';
-import { SimulatorLanding } from './components/SimulatorLanding';
+import { Header } from './src/components/shared/Header';
+import { Sidebar, View } from './src/components/shared/Sidebar';
+import { ToastContainer, toast } from './src/components/shared/Toast';
+import { Settings } from './src/components/shared/Settings';
+import { Client, Notification, Quote, NavigationContext } from './src/models/types';
+import { simulationService } from './src/services/simulation/simulationService';
+import { Cotizador } from './src/components/shared/Cotizador';
+import { Ecosystems } from './src/components/shared/Ecosystems';
+import { Dashboard } from './src/components/shared/Dashboard';
+import { Opportunities } from './src/components/shared/Opportunities';
+import { ClientsView } from './src/components/shared/ClientsView';
+import { ClientDetail } from './src/components/shared/ClientDetail';
+import { CollectiveCredit } from './src/components/shared/CollectiveCredit';
+import { BottomNavBar } from './src/components/shared/BottomNavBar';
+import { SimulatorLanding } from './src/components/shared/SimulatorLanding';
 
 const App: React.FC = () => {
   const [activeView, setActiveView] = useState<View>('dashboard');

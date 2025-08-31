@@ -1,4 +1,4 @@
-import { Client, BusinessFlow, DocumentStatus, EventLog, Actor, PaymentLinkDetails, Document, CollectiveCreditGroup, CollectiveCreditMember, EventType, OpportunityStage, ImportStatus, Notification, NotificationType, ActionableGroup, ActionableClient, Ecosystem, Quote, Market, ProtectionScenario, TandaGroupInput, TandaSimConfig, TandaSimulationResult, TandaMonthState, TandaAward, TandaRiskBadge } from '../types';
+import { Client, BusinessFlow, DocumentStatus, EventLog, Actor, PaymentLinkDetails, Document, CollectiveCreditGroup, CollectiveCreditMember, EventType, OpportunityStage, ImportStatus, Notification, NotificationType, ActionableGroup, ActionableClient, Ecosystem, Quote, Market, ProtectionScenario, TandaGroupInput, TandaSimConfig, TandaSimulationResult, TandaMonthState, TandaAward, TandaRiskBadge } from '../../models/types';
 import { View } from '../components/Sidebar';
 
 // Use mutable maps to simulate a database

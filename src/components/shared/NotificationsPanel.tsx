@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Notification, NotificationType } from '../types';
+import { Notification, NotificationType } from '../../models/types';
 import { BellIcon, CheckCircleIcon, ExclamationCircleIcon, LightBulbIcon } from './icons';
 
 interface NotificationsPanelProps {

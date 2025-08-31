@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProtectionScenario } from '../types';
+import { ProtectionScenario } from '../../models/types';
 import { CheckCircleIcon } from './icons';
 
 interface ScenarioCardProps {

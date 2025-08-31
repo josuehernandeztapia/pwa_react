@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Client, ImportStatus, ImportMilestoneStatus } from '../types';
+import { Client, ImportStatus, ImportMilestoneStatus } from '../../models/types';
 import { CheckCircleIcon, ClockIcon } from './icons';
 
 interface ImportTrackerProps {

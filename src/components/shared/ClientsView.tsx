@@ -1,7 +1,7 @@
 
 import React, { useState, useMemo } from 'react';
-import { Client, BusinessFlow } from '../types';
-import { BUSINESS_FLOWS, ALL_FLOWS } from '../constants';
+import { Client, BusinessFlow } from '../../models/types';
+import { BUSINESS_FLOWS, ALL_FLOWS } from '../../utils/constants';
 import { ClientCard } from './ClientCard';
 import { ViewGridIcon, ViewListIcon } from './icons';
 

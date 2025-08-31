@@ -1,4 +1,4 @@
-import { ProtectionScenario } from '../types';
+import { ProtectionScenario } from '../../models/types';
 
 // --- Advanced Financial Functions for TIR and Policy Validation ---
 export const TIR_MIN_AGS = 0.255; // Aguascalientes rate (25.5% annual)

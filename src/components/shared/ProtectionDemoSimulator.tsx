@@ -1,6 +1,6 @@
 import React, { useState, FormEvent } from 'react';
-import { ProtectionScenario } from '../types';
-import { simulationService } from '../services/simulationService';
+import { ProtectionScenario } from '../../models/types';
+import { simulationService } from '../../services/simulation/simulationService';
 import { toast } from './Toast';
 import { ScenarioCard } from './ScenarioCard';
 

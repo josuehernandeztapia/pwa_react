@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { TandaSimDraft, TandaSimulationResult, TandaMonthState, TandaAward, TandaSimEvent } from '../types';
-import { simulationService } from '../services/simulationService';
+import { TandaSimDraft, TandaSimulationResult, TandaMonthState, TandaAward, TandaSimEvent } from '../../models/types';
+import { simulationService } from '../../services/simulation/simulationService';
 import { UserGroupIcon, PlusCircleIcon, SparklesIcon, TrendingUpIcon, CheckCircleIcon, XCircleIcon } from './icons';
 import { toast } from './Toast';
 

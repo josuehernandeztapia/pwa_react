@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { Client, OpportunityStage } from '../types';
-import { simulationService } from '../services/simulationService';
+import { Client, OpportunityStage } from '../../models/types';
+import { simulationService } from '../../services/simulation/simulationService';
 import { ClientCard } from './ClientCard';
 
 interface OpportunitiesProps {

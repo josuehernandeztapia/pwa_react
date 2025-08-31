@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { NavigationContext, Client } from '../types';
+import { NavigationContext, Client } from '../../models/types';
 import { HomeIcon, ChevronRightIcon } from './icons';
 
 interface BreadcrumbProps {

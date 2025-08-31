@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { simulationService } from '../services/simulationService';
+import { simulationService } from '../../services/simulation/simulationService';
 import { toast } from './Toast';
 import { CalculatorIcon, CheckCircleIcon, LightBulbIcon, ClockIcon, UserGroupIcon, ShieldCheckIcon } from './icons';
-import { Client, Quote, BusinessFlow, TandaMilestone } from '../types';
+import { Client, Quote, BusinessFlow, TandaMilestone } from '../../models/types';
 import { Modal } from './Modal';
 import { ProtectionDemoSimulator } from './ProtectionDemoSimulator';
 

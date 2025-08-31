@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { Client, OpportunityStage, ActionableGroup, ActionableClient, Market } from '../types';
-import { simulationService } from '../services/simulationService';
+import { Client, OpportunityStage, ActionableGroup, ActionableClient, Market } from '../../models/types';
+import { simulationService } from '../../services/simulation/simulationService';
 import { ChevronRightIcon, LightBulbIcon } from './icons';
 
 interface DashboardProps {

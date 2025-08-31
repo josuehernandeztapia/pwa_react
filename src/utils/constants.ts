@@ -1,5 +1,5 @@
 
-import { BusinessFlow } from './types';
+import { BusinessFlow } from '../models/types';
 
 export const ALL_FLOWS = 'Todos los Flujos';
 

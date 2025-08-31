@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { PlusCircleIcon, BellIcon, CheckCircleIcon, LightBulbIcon } from './icons';
 import { Modal } from './Modal';
 import { toast } from './Toast';
-import { simulationService } from '../services/simulationService';
-import { Notification, Ecosystem, Client, BusinessFlow } from '../types';
+import { simulationService } from '../../services/simulation/simulationService';
+import { Notification, Ecosystem, Client, BusinessFlow } from '../../models/types';
 import { NotificationsPanel } from './NotificationsPanel';
 
 type OnboardingStep = 'flow_selection' | 'market' | 'clientType' | 'ecosystem' | 'details';

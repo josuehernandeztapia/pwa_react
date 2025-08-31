@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { ToastMessage as ToastType } from '../types';
+import { ToastMessage as ToastType } from '../../models/types';
 import { CheckCircleSolidIcon, InformationCircleIcon, ExclamationCircleIcon, XIcon } from './icons';
 
 // Simple event emitter
