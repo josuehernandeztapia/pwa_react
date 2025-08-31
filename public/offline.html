@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sin Conexión - Asesor CMu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: #f9fafb;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .offline-container {
+            text-align: center;
+            max-width: 500px;
+            background: rgba(31, 41, 55, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(75, 85, 99, 0.3);
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .offline-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            opacity: 0.6;
+        }
+        
+        .offline-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #06b6d4;
+        }
+        
+        .offline-message {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #d1d5db;
+            margin-bottom: 32px;
+        }
+        
+        .connection-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(239, 68, 68, 0.1);
+            color: #fca5a5;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 32px;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .connection-status.online {
+            background: rgba(34, 197, 94, 0.1);
+            color: #86efac;
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: currentColor;
+            animation: pulse 2s infinite;
+        }
+        
+        .retry-button {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-right: 12px;
+        }
+        
+        .retry-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(6, 182, 212, 0.3);
+        }
+        
+        .retry-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .home-button {
+            background: transparent;
+            color: #9ca3af;
+            border: 1px solid rgba(156, 163, 175, 0.3);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .home-button:hover {
+            border-color: rgba(156, 163, 175, 0.5);
+            color: #d1d5db;
+        }
+        
+        .features-available {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(75, 85, 99, 0.3);
+        }
+        
+        .features-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #f3f4f6;
+        }
+        
+        .features-list {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            color: #d1d5db;
+            font-size: 14px;
+        }
+        
+        .feature-icon {
+            width: 16px;
+            height: 16px;
+            color: #06b6d4;
+            flex-shrink: 0;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        @media (max-width: 480px) {
+            .offline-container {
+                padding: 30px 20px;
+            }
+            
+            .offline-title {
+                font-size: 24px;
+            }
+            
+            .retry-button, .home-button {
+                display: block;
+                width: 100%;
+                margin: 6px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <svg class="offline-icon" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.07 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/>
+            <path d="M12 20h.01M8.5 16.5h.01M15.5 16.5h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        
+        <h1 class="offline-title">Sin Conexión a Internet</h1>
+        
+        <p class="offline-message">
+            No tienes conexión a internet en este momento. Algunas funciones del Asesor CMu están disponibles sin conexión.
+        </p>
+        
+        <div class="connection-status" id="connectionStatus">
+            <div class="status-dot"></div>
+            <span>Sin conexión</span>
+        </div>
+        
+        <div>
+            <button class="retry-button" onclick="window.location.reload()">
+                Reintentar Conexión
+            </button>
+            <button class="home-button" onclick="goHome()">
+                Ir al Inicio
+            </button>
+        </div>
+        
+        <div class="features-available">
+            <h3 class="features-title">Disponible sin conexión:</h3>
+            <ul class="features-list">
+                <li>
+                    <svg class="feature-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>Consultar datos de clientes guardados</span>
+                </li>
+                <li>
+                    <svg class="feature-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                    </svg>
+                    <span>Simulador financiero y calculadoras</span>
+                </li>
+                <li>
+                    <svg class="feature-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                    <span>Documentos y contratos descargados</span>
+                </li>
+                <li>
+                    <svg class="feature-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                    </svg>
+                    <span>Crear cotizaciones y borradores</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Connection status monitoring
+        function updateConnectionStatus() {
+            const statusElement = document.getElementById('connectionStatus');
+            const retryButton = document.querySelector('.retry-button');
+            
+            if (navigator.onLine) {
+                statusElement.className = 'connection-status online';
+                statusElement.innerHTML = '<div class="status-dot"></div><span>Conectado</span>';
+                retryButton.disabled = false;
+                
+                // Auto-reload when connection is restored
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            } else {
+                statusElement.className = 'connection-status';
+                statusElement.innerHTML = '<div class="status-dot"></div><span>Sin conexión</span>';
+                retryButton.disabled = true;
+            }
+        }
+        
+        // Listen for connection changes
+        window.addEventListener('online', updateConnectionStatus);
+        window.addEventListener('offline', updateConnectionStatus);
+        
+        // Initial check
+        updateConnectionStatus();
+        
+        // Go home function
+        function goHome() {
+            if (navigator.onLine) {
+                window.location.href = '/';
+            } else {
+                // Try to go to cached homepage
+                window.location.href = '/';
+            }
+        }
+        
+        // Retry connection every 30 seconds
+        setInterval(updateConnectionStatus, 30000);
+    </script>
+</body>
+</html>
