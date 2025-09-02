@@ -14,7 +14,10 @@ export interface ServicesConfig {
     password: string;
   };
   conekta?: {
-    publicKey: string;
+    publicKey?: string;
+    privateKey?: string;
+    baseUrl?: string;
+    webhookSecret?: string;
     apiVersion?: string;
     locale?: string;
     sandboxMode?: boolean;
@@ -90,8 +93,15 @@ export const useServices = (config: ServicesConfig) => {
 
       // Initialize Payment Service
       let paymentsService: ConektaService | null = null;
-      if (config.conekta) {
-        paymentsService = new ConektaService(config.conekta);
+      if (config.conekta && config.conekta.privateKey && config.conekta.baseUrl) {
+        paymentsService = new ConektaService({
+          publicKey: config.conekta.publicKey || '',
+          privateKey: config.conekta.privateKey,
+          baseUrl: config.conekta.baseUrl,
+          webhookSecret: config.conekta.webhookSecret
+        });
+      } else if (config.conekta) {
+        console.warn('[useServices] Conekta config missing privateKey or baseUrl. Payments service will not be initialized.');
       }
 
       // Initialize Signature Service
