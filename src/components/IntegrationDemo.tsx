@@ -3,6 +3,7 @@ import { useServices } from '../hooks/useServices';
 import { useOdooApi } from '../hooks/useOdooApi';
 import { useDataSync } from '../hooks/useDataSync';
 import { useOfflineStorage } from '../hooks/useOfflineStorage';
+import MifieldService from '../services/signatures/mifieldService';
 
 const IntegrationDemo: React.FC = () => {
   const [testResults, setTestResults] = useState<Record<string, 'pending' | 'success' | 'error'>>({});
@@ -11,18 +12,21 @@ const IntegrationDemo: React.FC = () => {
   // Initialize all services
   const services = useServices({
     odoo: {
-      baseUrl: process.env.VITE_ODOO_URL || 'https://demo.odoo.com',
-      database: process.env.VITE_ODOO_DB || 'demo',
-      username: process.env.VITE_ODOO_USER || 'admin',
-      password: process.env.VITE_ODOO_PASS || 'admin'
+      baseUrl: (import.meta as any).env?.VITE_ODOO_URL || 'https://demo.odoo.com',
+      database: (import.meta as any).env?.VITE_ODOO_DB || 'demo',
+      username: (import.meta as any).env?.VITE_ODOO_USER || 'admin',
+      password: (import.meta as any).env?.VITE_ODOO_PASS || 'admin'
     },
     conekta: {
-      publicKey: process.env.VITE_CONEKTA_KEY || 'key_demo',
+      publicKey: (import.meta as any).env?.VITE_CONEKTA_PUBLIC_KEY,
+      privateKey: (import.meta as any).env?.VITE_CONEKTA_PRIVATE_KEY,
+      baseUrl: (import.meta as any).env?.VITE_CONEKTA_BASE_URL,
+      webhookSecret: (import.meta as any).env?.VITE_CONEKTA_WEBHOOK_SECRET,
       sandboxMode: true
     },
     mifiel: {
-      appId: process.env.VITE_MIFIEL_APP_ID || 'demo',
-      appSecret: process.env.VITE_MIFIEL_SECRET || 'demo',
+      appId: (import.meta as any).env?.VITE_MIFIEL_APP_ID || 'demo',
+      appSecret: (import.meta as any).env?.VITE_MIFIEL_APP_SECRET || (import.meta as any).env?.VITE_MIFIEL_SECRET || 'demo',
       baseUrl: 'https://sandbox.mifiel.com/api/v1',
       sandboxMode: true
     },
@@ -120,25 +124,23 @@ const IntegrationDemo: React.FC = () => {
 
       if (services.payments) {
         const testPayment = {
-          amount: 10000, // $100.00 MXN
-          currency: 'MXN' as const,
-          description: 'Pago de prueba - Demo PWA',
-          customerInfo: {
-            name: 'Cliente Demo',
-            email: 'demo@example.com',
-            phone: '5555555555'
-          },
+          customerName: 'Cliente Demo',
+          customerEmail: 'demo@example.com',
+          customerPhone: '5555555555',
+          amount: 100,
+          concept: 'Pago de prueba - Demo PWA',
+          reference: 'DEMO-TEST-001',
           metadata: {
             clientId: 'test_001',
             type: 'demo'
           }
         };
 
-        const paymentLink = await services.payments.createPaymentLink(testPayment);
-        addLog(`✅ Payment link created: ${paymentLink.id}`);
+        const paymentLinkResp = await services.payments.createPaymentLink(testPayment as any);
+        addLog(`✅ Payment link created: ${paymentLinkResp.checkout?.url || paymentLinkResp.order?.checkout?.url}`);
         
-        const oxxoPayment = await services.payments.createOXXOPayment(testPayment);
-        addLog(`✅ OXXO payment created: ${oxxoPayment.referenceNumber}`);
+        const oxxoPaymentResp = await services.payments.createOXXOPayment(testPayment as any);
+        addLog(`✅ OXXO payment created: ${oxxoPaymentResp.checkout?.url || oxxoPaymentResp.order?.checkout?.url}`);
 
         updateTestResult('payments', 'success');
       } else {
@@ -159,7 +161,7 @@ const IntegrationDemo: React.FC = () => {
       if (services.signatures) {
         const testDocument = {
           name: 'Contrato Demo',
-          hash: services.signatures.constructor.generateDocumentHash('Contenido del contrato demo'),
+          hash: MifieldService.generateDocumentHash('Contenido del contrato demo'),
           signers: [{
             name: 'Cliente Demo',
             email: 'demo@example.com',
